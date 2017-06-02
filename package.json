@@ -1,0 +1,19 @@
+{
+  "name": "demoweb",
+  "version": "1.0.0",
+  "description": "Some sample web app.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kpiering/demoweb.git"
+  },
+  "author": "Kelley Piering",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kpiering/demoweb/issues"
+  },
+  "homepage": "https://github.com/kpiering/demoweb#readme"
+}
