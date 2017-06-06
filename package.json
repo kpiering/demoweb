@@ -4,8 +4,13 @@
   "description": "Some sample web app.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server"
+    "build-task:scss-compile": "node-sass-chokidar --source-map true _scss/style.scss -o _temp",
+    "build-task:autoprefixer": "postcss _temp/style.css --use autoprefixer -d _css",
+    "sass:build": "npm-run-all -p build-task:*",
+    "sass:watch": "chokidar '_scss/**/*.scss' -c 'npm run sass:build'",
+    "serve:watch": "live-server --ignore=_scss,_temp,.git",
+    "start": "npm-run-all -p sass:* serve:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -21,6 +26,11 @@
     "jquery": "^3.2.1"
   },
   "devDependencies": {
-    "live-server": "^1.2.0"
+    "autoprefixer": "^7.1.1",
+    "chokidar-cli": "^1.2.0",
+    "live-server": "^1.2.0",
+    "node-sass-chokidar": "0.0.2",
+    "npm-run-all": "^4.0.2",
+    "postcss-cli": "^4.0.0"
   }
 }
